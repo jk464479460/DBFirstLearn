@@ -19,11 +19,12 @@ namespace ConsoleApplication14
         public DbSet<AB> ABs { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> TbClass { get; set; }
+        public DbSet<Category2> TbClass2 { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Database.SetInitializer<BloggingContext>(null);
-            base.OnModelCreating(modelBuilder);
+            Database.SetInitializer<BloggingContext>(null);
+            //base.OnModelCreating(modelBuilder);
         }
     }
 
@@ -68,7 +69,15 @@ namespace ConsoleApplication14
     [Table("TbClass")]
     public class Category
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    [Table("TbClass2")]
+    public class Category2
+    {
+        public string Id { get; set; }
         public string Name { get; set; }
     }
 }

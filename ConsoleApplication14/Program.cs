@@ -15,7 +15,7 @@ namespace ConsoleApplication14
                 //{
                 //    Database.SetInitializer<BloggingContext>(new System.Data.Entity.CreateDatabaseIfNotExists<BloggingContext>());
                 //}
-                Database.SetInitializer<BloggingContext>(new System.Data.Entity.DropCreateDatabaseIfModelChanges<BloggingContext>());
+                //Database.SetInitializer<BloggingContext>(new System.Data.Entity.DropCreateDatabaseIfModelChanges<BloggingContext>());
                 using (var db = new BloggingContext())
                 {
                     var name = "123";
@@ -26,6 +26,8 @@ namespace ConsoleApplication14
 
                     var tat = new Product { Name = "a"+DateTime.Now.Second, Age = 19 };
                     db.Products.Add(tat);
+                    var cate = new Category { Id=100, Name = "Jhon" };
+                    db.TbClass.Add(cate);
                     db.SaveChanges();
                     // Display all Blogs from the database 
                     var query = from b in db.Blogs
